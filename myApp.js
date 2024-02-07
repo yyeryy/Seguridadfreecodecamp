@@ -2,9 +2,13 @@ const express = require('express');
 const helmet = require('helmet');
 const app = express();
 
-//Codigo personal
+//CÓDIGO PERSONAL
+
+//Evitar la utilizacion de la cabecera 'X-Powered-By: Express'
 app.use(helmet.hidePoweredBy());
 
+//
+app.use(helmet.frameguard({action: 'deny'}));
 
 
 
