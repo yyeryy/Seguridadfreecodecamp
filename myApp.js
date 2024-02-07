@@ -30,6 +30,8 @@ app.use(helmet.hsts({
 //Deshabilitar el DNS(Tiene penalizacion de rendimiento)
 app.use(helmet.dnsPrefetchControl());
 
+//Deshabilitar almacenamiento de cache(Tiene penalizacion de rendimiento)
+app.use(helmet.noCache());
 
 
 
