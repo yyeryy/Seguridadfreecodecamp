@@ -16,6 +16,9 @@ app.use(helmet.xssFilter());
 //noSniff
 app.use(helmet.noSniff());
 
+//Prevencion para internet explorer()
+app.use(helmet.ieNoOpen());
+
 
 
 
