@@ -58,8 +58,7 @@ app.use(helmet.contentSecurityPolicy({
     dnsPrefetchControl: false     // disable
   }))*/
 
-//Añadir hash blowfish
-const helmet = require('bcrypt');
+
 
 
 
