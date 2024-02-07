@@ -8,7 +8,9 @@ const app = express();
 app.use(helmet.hidePoweredBy());
 
 //Evitar la utilizacion de iframes para ataques
-app.use(helmet.frameguard({action: 'deny'}));
+app.use(helmet.frameguard({
+    action: 'deny'
+}));
 
 //Evitar ataques XSS
 app.use(helmet.xssFilter());
@@ -16,9 +18,14 @@ app.use(helmet.xssFilter());
 //noSniff
 app.use(helmet.noSniff());
 
-//Prevencion para internet explorer()
+//Prevencion para internet explorer(Navegador de poca confianza)
 app.use(helmet.ieNoOpen());
 
+//Utilizacion de HSTS
+app.use(helmet.hsts({
+    maxAge: 7776000, //90 dias en segundos
+    force: true
+}));
 
 
 
@@ -70,9 +77,9 @@ app.use(express.static('public'));
 app.disable('strict-transport-security');
 app.use('/_api', api);
 app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+    response.sendFile(__dirname + '/views/index.html');
 });
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Your app is listening on port ${port}`);
+    console.log(`Your app is listening on port ${port}`);
 });
