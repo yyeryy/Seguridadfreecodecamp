@@ -33,6 +33,15 @@ app.use(helmet.dnsPrefetchControl());
 //Deshabilitar almacenamiento de cache(Tiene penalizacion de rendimiento)
 app.use(helmet.noCache());
 
+//Content security policy para no ejecutar nada externo
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "trusted-cdn.com"],
+    }
+}));
+
+
 
 
 
