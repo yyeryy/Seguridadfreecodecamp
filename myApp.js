@@ -7,8 +7,11 @@ const app = express();
 //Evitar la utilizacion de la cabecera 'X-Powered-By: Express'
 app.use(helmet.hidePoweredBy());
 
-//
+//Evitar la utilizacion de iframes para ataques
 app.use(helmet.frameguard({action: 'deny'}));
+
+//Evitar ataques XSS
+app.use(helmet.xssFilter());
 
 
 
