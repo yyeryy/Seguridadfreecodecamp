@@ -1,6 +1,9 @@
 const express = require('express');
+const helmet = require('helmet');
 const app = express();
 
+//Codigo personal
+app.use(helmet.hidePoweredBy());
 
 
 
@@ -47,6 +50,7 @@ const app = express();
 
 
 
+//Codigo dado
 module.exports = app;
 const api = require('./server.js');
 app.use(express.static('public'));
