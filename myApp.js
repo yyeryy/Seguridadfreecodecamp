@@ -27,7 +27,8 @@ app.use(helmet.hsts({
     force: true
 }));
 
-
+//Deshabilitar el DNS(Tiene penalizacion de rendimiento)
+app.use(helmet.dnsPrefetchControl());
 
 
 
