@@ -41,11 +41,25 @@ app.use(helmet.contentSecurityPolicy({
     }
 }));
 
+//Utiliza todos los middleware de helmet execpto noCache() y contentSecurityPolicy()
+//app.use(helmet())
 
+//Ejemplo de uso desactivando dnsPrefetchControl y configurando el frameguard
+/*app.use(helmet({
+    frameguard: {         // configure
+      action: 'deny'
+    },
+    contentSecurityPolicy: {    // enable and configure
+      directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ['style.com'],
+      }
+    },
+    dnsPrefetchControl: false     // disable
+  }))*/
 
-
-
-
+//Añadir hash blowfish
+const helmet = require('bcrypt');
 
 
 
